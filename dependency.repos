@@ -31,7 +31,7 @@ repositories:
   cabot-people:
     type: git
     url: https://github.com/CMU-cabot/cabot-people
-    version: main
+    version: ishihara/update-framos-sdk
 
   # FIXME
   docker/home/ros2_ws/src/rosbridge_suite:
