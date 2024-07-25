@@ -19,5 +19,3 @@ jobs:
       build-name: people
       push-name: people
       tag-name: ros2-dev-latest
-    secrets:
-      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
