@@ -19,3 +19,11 @@ jobs:
       build-name: people
       push-name: people
       tag-name: ros2-dev-latest
+
+  build-on-temp-people:
+    uses: cmu-cabot/cabot/.github/workflows/build-on-temp.yaml@muratams/test-workflow
+    with:
+      prebuild-name: people
+      build-name: people
+      push-name: people
+      tag-name: ros2-dev-latest

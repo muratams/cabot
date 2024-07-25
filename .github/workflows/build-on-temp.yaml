@@ -1,0 +1,53 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      prebuild-name:
+        required: true
+        type: string
+      build-name:
+        required: true
+        type: string
+      push-name:
+        required: true
+        type: string
+      tag-name:
+        required: true
+        type: string
+      push-sha:
+        required: false
+        type: string
+        default: true
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Maximize build space
+      run:  |
+            sudo rm -rf /usr/local/lib/android # will release about 10 GB if you don't need Android
+            sudo rm -rf /usr/share/dotnet # will release about 20GB if you don't need .NET
+            sudo rm -rf /opt/ghc
+            echo "Available storage:"
+            df -h
+
+    - name: Move docker directory to /mnt
+      run:  |
+            sudo systemctl stop docker
+            sudo mkdir /mnt/docker
+            rsync -avxP /var/lib/docker/ /mnt/docker
+            DOCKER_OPTS="-g /mnt/docker"
+            sudo systemctl start docker
+
+    - uses: actions/checkout@v4
+
+    - name: Install vcs
+      run: pip3 install vcstool
+
+    - name: Prepare thirdparty repos
+      run: ./setup-dependency.sh
+
+    - name: Build images
+      shell: bash
+      run: ./build-docker.sh -p ${{ inputs.prebuild-name }} -i -w ${{ inputs.build-name }}
