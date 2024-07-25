@@ -38,7 +38,8 @@ jobs:
             sudo systemctl stop docker
             sudo mkdir /mnt/docker
             sudo rsync -avxP /var/lib/docker/ /mnt/docker
-            DOCKER_OPTS="-g /mnt/docker"
+            cat /etc/docker/daemon.json
+            sudo echo '{"data-root": "/mnt/docker"}' > /etc/docker/daemon.json
             sudo systemctl start docker
             docker info | grep 'Docker Root Dir'
 
