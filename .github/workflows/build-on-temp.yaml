@@ -9,6 +9,10 @@ on:
       build-name:
         required: true
         type: string
+      camera-target:
+        required: false
+        type: string
+        default: "realsense framos"
       push-name:
         required: true
         type: string
@@ -52,4 +56,4 @@ jobs:
 
     - name: Build images
       shell: bash
-      run: ./build-docker.sh -p ${{ inputs.prebuild-name }} -i -w ${{ inputs.build-name }}
+      run: ./build-docker.sh -p ${{ inputs.prebuild-name }} -i -w ${{ inputs.build-name }} -c ${{ inputs.camera-target }}

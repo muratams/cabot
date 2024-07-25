@@ -12,18 +12,38 @@ on:
       - '!docker/uid/**'
 
 jobs:
-  build-people:
+  build-people-realsense:
     uses: cmu-cabot/cabot/.github/workflows/build.yaml@muratams/test-workflow
     with:
       prebuild-name: people
       build-name: people
       push-name: people
+      camera-target: realsense
       tag-name: ros2-dev-latest
 
-  build-on-temp-people:
+  build-people-framos:
+    uses: cmu-cabot/cabot/.github/workflows/build.yaml@muratams/test-workflow
+    with:
+      prebuild-name: people
+      build-name: people
+      push-name: people
+      camera-target: framos
+      tag-name: ros2-dev-latest
+
+  build-on-temp-people-realsense:
     uses: cmu-cabot/cabot/.github/workflows/build-on-temp.yaml@muratams/test-workflow
     with:
       prebuild-name: people
       build-name: people
       push-name: people
+      camera-target: realsense
+      tag-name: ros2-dev-latest
+
+  build-on-temp-people-framos:
+    uses: cmu-cabot/cabot/.github/workflows/build-on-temp.yaml@muratams/test-workflow
+    with:
+      prebuild-name: people
+      build-name: people
+      push-name: people
+      camera-target: framos
       tag-name: ros2-dev-latest
