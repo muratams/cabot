@@ -12,56 +12,26 @@ on:
       - '!docker/uid/**'
 
 jobs:
-  build-free-space-people-realsense:
+  build-free-space-people:
     uses: ./.github/workflows/build-free-space.yaml
     with:
       prebuild-name: people
       build-name: people
       push-name: people
-      camera-target: realsense
       tag-name: ros2-dev-latest
 
-  build-free-space-people-framos:
-    uses: ./.github/workflows/build-free-space.yaml
-    with:
-      prebuild-name: people
-      build-name: people
-      push-name: people
-      camera-target: framos
-      tag-name: ros2-dev-latest
-
-  build-on-lvm-people-realsense:
+  build-on-lvm-people:
     uses: ./.github/workflows/build-on-lvm.yaml
     with:
       prebuild-name: people
       build-name: people
       push-name: people
-      camera-target: realsense
       tag-name: ros2-dev-latest
 
-  build-on-lvm-people-framos:
-    uses: ./.github/workflows/build-on-lvm.yaml
-    with:
-      prebuild-name: people
-      build-name: people
-      push-name: people
-      camera-target: framos
-      tag-name: ros2-dev-latest
-
-  build-on-temp-people-realsense:
+  build-on-temp-people:
     uses: ./.github/workflows/build-on-temp.yaml
     with:
       prebuild-name: people
       build-name: people
       push-name: people
-      camera-target: realsense
-      tag-name: ros2-dev-latest
-
-  build-on-temp-people-framos:
-    uses: ./.github/workflows/build-on-temp.yaml
-    with:
-      prebuild-name: people
-      build-name: people
-      push-name: people
-      camera-target: framos
       tag-name: ros2-dev-latest
