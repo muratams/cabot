@@ -1,0 +1,23 @@
+name: Build People Docker Image without Push
+
+on:
+  push:
+    branches: [ muratams/test-workflow ]
+    paths:
+      - '.github/workflows/build-docker-image.yaml'
+      - '**'
+      - '!docker/home/**'
+      - '!docker/*.sh'
+      - '!docker/timezone/**'
+      - '!docker/uid/**'
+
+jobs:
+  build-people:
+    uses: cmu-cabot/cabot/.github/workflows/build.yaml@muratams/test-workflow
+    with:
+      prebuild-name: people
+      build-name: people
+      push-name: people
+      tag-name: ros2-dev-latest
+    secrets:
+      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
