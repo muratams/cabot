@@ -9,8 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Maximize Build Space
-      uses: ./.github/workflows/maximize-build-space
+    # - name: Maximize Build Space
+    #   uses: ./.github/workflows/maximize-build-space
 
     - name: Show available storage
       run:  |
@@ -25,7 +25,7 @@ jobs:
 
     - name: Install ROS 2
       run:  |
-            cd cabot/tools
+            cd ./tools
             ./install-host-ros2.sh
 
     - name: Build images
