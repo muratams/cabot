@@ -1,4 +1,4 @@
-name: Build People Docker Image without Push
+name: Build Docker Image without Push
 
 on:
   push:
@@ -19,19 +19,6 @@ jobs:
       build-name: people
       push-name: people
       tag-name: ros2-dev-latest
-
-  build-on-lvm-people:
-    uses: ./.github/workflows/build-on-lvm.yaml
-    with:
-      prebuild-name: people
-      build-name: people
-      push-name: people
-      tag-name: ros2-dev-latest
-
-  build-on-temp-people:
-    uses: ./.github/workflows/build-on-temp.yaml
-    with:
-      prebuild-name: people
-      build-name: people
-      push-name: people
-      tag-name: ros2-dev-latest
+  
+  build-host-ws:
+    uses: ./.github/workflows/build-host-ws.yaml
