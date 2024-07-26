@@ -7,16 +7,16 @@ runs:
       run:  |
         docker system prune -a --volumes -f
         sudo apt purge -y \
-          aspnetcore* \
+          ^aspnetcore* \
           azure-cli* \
-          dotnet-* \
+          ^dotnet-* \
           firefox* \
           google-chrome-stable* \
-          google-cloud-sdk* \
-          llvm* \
-          mongodb* \
-          mysql* \
-          php* \
+          google-cloud-* \
+          ^llvm* \
+          ^mongodb* \
+          ^mysql* \
+          php*
         sudo apt-get autoremove -y
         sudo apt-get autoclean -y
         sudo rm -rf /usr/local/lib/android # will release about 10 GB if you don't need Android
