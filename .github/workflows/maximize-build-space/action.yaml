@@ -1,6 +1,7 @@
 name: Maximize Build Space
 
 runs:
+  using: "composite"
   steps:
     - shell: bash
       run:  |
