@@ -1,24 +1,4 @@
-name: Build
-
-on:
-  workflow_call:
-    inputs:
-      prebuild-name:
-        required: true
-        type: string
-      build-name:
-        required: true
-        type: string
-      camera-target:
-        required: false
-        type: string
-        default: "realsense framos"
-      push-name:
-        required: true
-        type: string
-      tag-name:
-        required: true
-        type: string
+name: Build Host Workspace
 
 jobs:
   reusable_workflow_job:
