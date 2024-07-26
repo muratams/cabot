@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Maximize Build Space
-      uses: ./.github/workflows/maximize-build-space.yaml
+      uses: ./.github/workflows/maximize-build-space
 
     - name: Show available storage
       run:  |
