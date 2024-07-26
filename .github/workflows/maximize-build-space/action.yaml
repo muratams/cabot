@@ -2,7 +2,8 @@ name: Maximize Build Space
 
 runs:
   steps:
-    - run:  |
+    - shell: bash
+      run:  |
         docker system prune -a --volumes -f
         sudo apt purge -y \
           aspnetcore* \
