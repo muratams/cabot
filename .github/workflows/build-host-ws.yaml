@@ -23,6 +23,11 @@ jobs:
     - name: Prepare thirdparty repos
       run: ./setup-dependency.sh
 
+    - name: Install ROS 2
+      run:  |
+            cd cabot/tools
+            ./install-host-ros2.sh
+
     - name: Build images
       shell: bash
       run: ./build-docker.sh -o
