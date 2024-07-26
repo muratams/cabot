@@ -1,5 +1,8 @@
 name: Build Host Workspace
 
+on:
+  workflow_call:
+
 jobs:
   reusable_workflow_job:
     runs-on: ubuntu-20.04
