@@ -28,8 +28,8 @@ jobs:
   reusable_workflow_job:
     runs-on: ubuntu-20.04
     steps:
-    - name: Free Disk Space
-      uses: jlumbroso/free-disk-space@main
+    - name: Maximize Build Space
+      uses: ./maximize-build-space.yaml
 
     - name: Show available storage
       run:  |
