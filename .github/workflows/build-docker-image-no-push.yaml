@@ -21,6 +21,14 @@ jobs:
       push-name: people
       tag-name: ros2-dev-latest
 
+  build-people-move-docker-dir:
+    uses: ./.github/workflows/build-move-docker-dir.yaml
+    with:
+      prebuild-name: people
+      build-name: people
+      push-name: people
+      tag-name: ros2-dev-latest
+
   # build-people-nuc:
   #   uses: ./.github/workflows/build.yaml
   #   with:
