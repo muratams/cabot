@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      prebuild-name:
+        required: true
+        type: string
+      build-name:
+        required: true
+        type: string
+      push-name:
+        required: true
+        type: string
+      tag-name:
+        required: true
+        type: string
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Maximize Build Space
+      uses: ./.github/workflows/maximize-build-space
+
+    - name: Install vcs
+      run: pip3 install vcstool
+
+    - name: Prepare thirdparty repos
+      run: ./setup-dependency.sh
+
+    - name: Build images
+      shell: bash
+      run: ./build-docker.sh -p ${{ inputs.prebuild-name }} -i -w ${{ inputs.build-name }}
