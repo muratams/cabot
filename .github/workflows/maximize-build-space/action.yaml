@@ -37,6 +37,7 @@ runs:
           ruby* \
           sqlite3* \
           subversion \
+          temurin* \
           tmux* \
           vim* \
           yarn*
