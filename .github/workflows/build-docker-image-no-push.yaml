@@ -1,0 +1,54 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [ test-fix-workflow ]
+    paths:
+      - '.github/workflows/build-docker-image-no-push.yaml'
+      - '**'
+      - '!docker/home/**'
+      - '!docker/*.sh'
+      - '!docker/timezone/**'
+      - '!docker/uid/**'
+
+jobs:
+
+  build-people:
+    uses: ./.github/workflows/build.yaml
+    with:
+      prebuild-name: people
+      build-name: people
+      push-name: people
+      tag-name: ros2-dev-latest
+
+  build-people-nuc:
+    uses: ./.github/workflows/build.yaml
+    with:
+      prebuild-name: navigation
+      build-name: people-nuc
+      push-name: people-nuc
+      tag-name: ros2-dev-latest
+
+  build-ros2:
+    uses: ./.github/workflows/build.yaml
+    with:
+      prebuild-name: navigation
+      build-name: ros2
+      push-name: ros2
+      tag-name: ros2-dev-latest
+
+  build-localization:
+    uses: ./.github/workflows/build.yaml
+    with:
+      prebuild-name: navigation
+      build-name: localization
+      push-name: localization
+      tag-name: ros2-dev-latest
+
+  build-ble-scan:
+    uses: ./.github/workflows/build.yaml
+    with:
+      prebuild-name: navigation
+      build-name: ble_scan
+      push-name: ble_scan
+      tag-name: ros2-dev-latest
