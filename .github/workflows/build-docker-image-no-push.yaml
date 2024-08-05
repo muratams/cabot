@@ -2,7 +2,7 @@ name: Build Docker Image
 
 on:
   push:
-    branches: [ test-fix-workflow ]
+    branches: [ muratams/test-fix-workflow ]
     paths:
       - '.github/workflows/build-docker-image-no-push.yaml'
       - '**'
