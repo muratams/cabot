@@ -6,6 +6,7 @@ runs:
     - shell: bash
       run:  |
         docker system prune -a --volumes -f
+        sudo apt update
         sudo apt purge -y \
           ansible* \
           aria2* \
